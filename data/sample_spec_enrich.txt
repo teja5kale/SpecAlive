@@ -1,0 +1,39 @@
+ENRICH — Solar PV Plant Design Basis
+Customer: Enrich  (Solar-Design-Configurator production customer)
+Project: Enrich Utility-Scale PV — Block-01
+Location: Khavda, Gujarat, India (latitude 23.85 N)
+Mounting structure: MMS Table (32.2920 x 4.5760), C-section piling (12 piles per table)
+Electrical hierarchy: Modules -> Strings -> SCB -> Inverter -> ASB -> LT Panel -> Transformer
+
+Design Requirements
+
+1.  The block shall have a target DC capacity of 5 MWp.
+2.  Mounting shall be fixed-tilt at a tilt angle of 24 degrees.
+3.  The module shall be a Waaree 550 Wp mono-PERC panel (Voc 49.9 V, Vmp 41.5 V,
+    Isc 13.97 A, Imp 13.26 A, temperature coefficient of Voc -0.28 %/degC,
+    dimensions 2.279 m x 1.134 m).
+4.  The string open-circuit voltage at the minimum site temperature (5 degC)
+    shall not exceed 1500 V.
+5.  The inverter shall be a 4000 kVA central inverter with an MPPT window of
+    875 V to 1325 V.
+6.  The DC/AC ratio shall be between 1.20 and 1.30.
+7.  The ground coverage ratio (GCR) shall not exceed 0.45 to limit inter-row
+    shading losses.
+8.  The row-to-row pitch shall be at least 6.0 m.
+9.  The LT cable voltage drop shall not exceed 2.0 %.
+10. The plant shall achieve a specific yield of at least 1550 kWh/kWp per year
+    (site GHI approx 5.6 kWh/m2/day).
+11. The available site area for this block is 60000 m2.
+
+Provenance note
+---------------
+Repo-authentic (from the Solar-Design-Configurator codebase):
+  * Customer name "Enrich" — OrgControl/CustomerConfig.cs (current production customer).
+  * Module vendor "Waaree" — also a listed CustomerConfig customer (and a real module OEM).
+  * MMS Table (32.2920 x 4.5760) geometry and 12 C-section piles/table —
+    Resources/tableData.json.
+  * Terminology (Block, Inverter, ASB, SCB, LT Panel, Transformer, C-section pile) —
+    feature docs and Cable Schedule template headers.
+Industry-typical design inputs (per-tender values, not stored in the repo):
+  * Module datasheet figures, inverter rating, DC/AC window, GHI, min temperature,
+    GCR/pitch/yield targets — set to representative values for a Khavda utility block.

@@ -1,0 +1,29 @@
+{
+  "_comment": "MMS table geometry + pile config mirrored from Solar-Design-Configurator (Enrich production config) Resources/tableData.json (READ-ONLY reference; not linked to that repo). Name format: 'MMS Table (length x width)' in metres. 'MMS Table (32.2920 x 4.5760)' is the default fixed-tilt table (MMSData.currTableName).",
+  "tables": {
+    "MMS Table (32.2920 x 4.5760)": {
+      "length_m": 32.2920,
+      "width_m": 4.5760,
+      "type": "fixed_tilt",
+      "piles": 12
+    },
+    "MMS Table (128.58 x 2.278)": {
+      "length_m": 128.58,
+      "width_m": 2.278,
+      "type": "tracker",
+      "piles": 12
+    },
+    "MMS Table (96.492 x 2.278)": {
+      "length_m": 96.492,
+      "width_m": 2.278,
+      "type": "tracker",
+      "piles": 9
+    },
+    "MMS Table (64.404 x 2.278)": {
+      "length_m": 64.404,
+      "width_m": 2.278,
+      "type": "tracker",
+      "piles": 7
+    }
+  }
+}

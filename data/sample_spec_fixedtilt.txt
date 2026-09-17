@@ -1,0 +1,22 @@
+Solar PV Plant — Design Requirements (Block A)
+
+Project: AGEL Fixed-Tilt Block A
+Location: Khavda, Gujarat (latitude 23.85 N)
+
+1.  The block shall have a target DC capacity of 5 MWp.
+2.  Mounting shall be fixed-tilt at a tilt angle of 25 degrees.
+3.  The module shall be a 545 Wp mono-PERC panel (Voc 49.5 V, Vmp 41.8 V,
+    Isc 13.90 A, Imp 13.04 A, temperature coefficient of Voc -0.27 %/degC,
+    dimensions 2.279 m x 1.134 m).
+4.  The string open-circuit voltage at the minimum site temperature (5 degC)
+    shall not exceed 1500 V.
+5.  The inverter shall be a 4000 kVA central inverter with an MPPT window of
+    875 V to 1325 V.
+6.  The DC/AC ratio shall be between 1.20 and 1.30.
+7.  The ground coverage ratio (GCR) shall not exceed 0.45 to limit inter-row
+    shading losses.
+8.  The row-to-row pitch shall be at least 6.0 m.
+9.  The LT cable voltage drop shall not exceed 2.0 %.
+10. The plant shall achieve a specific yield of at least 1500 kWh/kWp per year
+    (site GHI approx 5.6 kWh/m2/day).
+11. The available site area for this block is 60000 m2.
