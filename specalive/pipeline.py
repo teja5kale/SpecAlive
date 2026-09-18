@@ -57,9 +57,9 @@ class PipelineResult:
         return written
 
 
-def run(spec_text: str) -> PipelineResult:
+def run(spec_text: str, naive_string_sizing: bool = True) -> PipelineResult:
     reqs, hints = extract(spec_text)
-    model0 = synthesize(reqs, hints)
+    model0 = synthesize(reqs, hints, naive_string_sizing)
     report0 = validate(reqs, simulate(model0))
     model1, report1, steps = refine(model0, reqs)
     sim1 = simulate(model1)

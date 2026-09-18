@@ -43,7 +43,14 @@ def main():
     with open(spec_path, "r", encoding="utf-8") as f:
         text = f.read()
 
-    res = run(text)
+    # --correct : size strings cold-Voc-aware from the start (no refine needed).
+    # default   : naive sizing -> initial Voc failure -> refine fixes it.
+    naive = "--correct" not in sys.argv
+    mode = "naive (catch & fix)" if naive else "cold-Voc-aware (correct from start)"
+    print(f"{Y}String-sizing mode: {mode}{X}   "
+          f"[toggle with --correct]")
+
+    res = run(text, naive_string_sizing=naive)
 
     _bar(f"① REQUIREMENTS EXTRACTED — {res.requirements.project}")
     for r in res.requirements.requirements:

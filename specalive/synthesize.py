@@ -35,7 +35,16 @@ def _pick_table(mounting: Mounting) -> str:
     return next(iter(tables))
 
 
-def synthesize(reqs: RequirementSet, hints: Dict[str, float]) -> PlantModel:
+def synthesize(reqs: RequirementSet, hints: Dict[str, float],
+               naive_string_sizing: bool = True) -> PlantModel:
+    """Build a PlantModel from requirements + hints.
+
+    naive_string_sizing=True  -> size strings on nameplate Voc (ignores the
+        cold-temperature Voc rise). The initial model then FAILS the Voc
+        requirement and the refiner corrects it -> the "catch & fix" demo.
+    naive_string_sizing=False -> size strings on cold Voc from the start, so
+        the model is correct on the first pass (no refine needed).
+    """
     h = hints
     mounting = Mounting.TRACKER if h.get("mounting", 0.0) >= 0.5 else Mounting.FIXED_TILT
 
@@ -80,8 +89,13 @@ def synthesize(reqs: RequirementSet, hints: Dict[str, float]) -> PlantModel:
     pitch_for_gcr = collector_w / gcr_cap
     row_pitch = round(max(min_pitch, pitch_for_gcr), 3)
 
-    # NAIVE string sizing (ignores cold Voc rise on purpose) -> refined later.
-    mps_naive = int(inverter.max_system_v // module.voc)
+    # String sizing: naive (nameplate Voc) vs cold-aware (Voc at min temp).
+    if naive_string_sizing:
+        mps = int(inverter.max_system_v // module.voc)
+    else:
+        from .simulate import voc_at_temp
+        voc_cold = voc_at_temp(module.voc, module.temp_coeff_voc, site.min_temp_c)
+        mps = int(inverter.max_system_v // voc_cold)
 
     model = PlantModel(
         project=reqs.project,
@@ -93,7 +107,7 @@ def synthesize(reqs: RequirementSet, hints: Dict[str, float]) -> PlantModel:
         inverter=inverter,
         cable=CableSpec(),
         site=site,
-        modules_per_string=mps_naive,
+        modules_per_string=mps,
         target_dc_ac=target_dc_ac,
         table_name=_pick_table(mounting),
     )

@@ -41,7 +41,15 @@ with st.sidebar:
     if os.path.exists(DEFAULT_SPEC):
         with open(DEFAULT_SPEC, "r", encoding="utf-8") as f:
             default_text = f.read()
-    spec_text = st.text_area("Paste / edit the spec", value=default_text, height=460)
+    spec_text = st.text_area("Paste / edit the spec", value=default_text, height=420)
+    mode = st.radio(
+        "String-sizing mode",
+        ["Naive → catch & fix (demo)", "Cold-Voc-aware (correct from start)"],
+        help="Naive sizes strings on nameplate Voc, so the initial model fails the "
+             "1500 V limit and the refiner corrects it. Cold-Voc-aware sizes on the "
+             "cold-temperature Voc from the start (no refine needed).",
+    )
+    naive = mode.startswith("Naive")
     go = st.button("▶ Run SpecAlive loop", type="primary", width='stretch')
 
 if not go:
@@ -49,7 +57,7 @@ if not go:
             "Try changing a threshold (e.g. Voc limit, DC/AC window) and re-run.")
     st.stop()
 
-res = run(spec_text)
+res = run(spec_text, naive_string_sizing=naive)
 
 # ---- top KPI strip ----
 sim, e = res.sim_final, res.sim_final.extras

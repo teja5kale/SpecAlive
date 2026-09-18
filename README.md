@@ -27,11 +27,25 @@ Requirements text → RequirementSet → PlantModel → Simulation → Validatio
 pip install -r requirements.txt          # pydantic + numpy are the only hard deps
 python cli.py                            # runs on data/sample_spec_enrich.txt
 python cli.py path/to/spec.txt --json    # your spec + dump design-intent JSON
+python cli.py --correct                  # cold-Voc-aware sizing (correct from start)
 streamlit run app.py                     # optional web UI
 ```
 
+On Windows you can also **double-click `run.bat`** (UI) or **`run-cli.bat`**
+(terminal loop → writes SysML/Modelica to `out/`).
+
 The pipeline runs fully **offline**. Set `ANTHROPIC_API_KEY` to use Claude for
 requirement extraction; otherwise a built-in regex parser is used.
+
+### String-sizing modes (toggle)
+
+Two ways to run, to show both stories:
+- **Naive (default)** — strings sized on nameplate Voc, so the initial model
+  **fails** the 1500 V limit and the agentic refiner fixes it (30 → 28
+  modules/string). The "catch & fix" demo.
+- **Cold-Voc-aware** (`--correct`, or the sidebar radio in the UI) — strings sized
+  on cold-temperature Voc from the start, so the model is **correct on the first
+  pass** (no refine needed).
 
 ## What the demo shows
 
