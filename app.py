@@ -110,3 +110,18 @@ with b2:
         st.write(f"**{i}. `{s.command}`**{dep} — {s.purpose}")
     with st.expander("Design intent (JSON for SicaMcpHost)"):
         st.code(json.dumps(res.design_intent, indent=2), language="json")
+
+st.divider()
+st.subheader("⑨ Generated system-model artifacts (SysML v2 + Modelica)")
+fn = "".join(c if c.isalnum() else "_" for c in res.model_final.project).strip("_") or "plant"
+sm, mo = st.columns([1, 1])
+with sm:
+    st.markdown("**SysML v2** — part defs, requirements & satisfy relationships")
+    st.download_button("⬇ Download .sysml", res.sysml_v2, file_name=f"{fn}.sysml",
+                       mime="text/plain", width="stretch")
+    st.code(res.sysml_v2, language="text")
+with mo:
+    st.markdown("**Modelica** — runnable one-day energy model (OpenModelica)")
+    st.download_button("⬇ Download .mo", res.modelica, file_name=f"{fn}.mo",
+                       mime="text/plain", width="stretch")
+    st.code(res.modelica, language="modelica")

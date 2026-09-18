@@ -1,0 +1,12 @@
+flowchart LR
+    SITE["🌍 Site<br/>lat 23.85°, area 60000 m²<br/>GHI 5.6 kWh/m²/day"]
+    ARR["▦ MMS Tables (fixed_tilt)<br/>163 × MMS Table (32.2920 x 4.5760)<br/>tilt 24.0°, pitch 10.169 m"]
+    MOD["🔆 Modules<br/>9100 × 550 Wp<br/>56/table"]
+    STR["🔗 Strings<br/>325 × 28 modules"]
+    INV["⚡ Inverters<br/>1 × 4000 kVA<br/>DC/AC 1.25"]
+    LT["🔌 LT Cabling<br/>300 mm² × 4"]
+    PILE["⏚ Piling<br/>1956 piles"]
+    GRID["🏭 Grid / MV"]
+
+    SITE --> ARR --> MOD --> STR --> INV --> LT --> GRID
+    ARR -.-> PILE

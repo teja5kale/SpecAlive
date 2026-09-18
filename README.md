@@ -78,13 +78,28 @@ specalive/
   validate.py     each requirement → PASS/FAIL + traceability
   refine.py       auto-correct failing requirements, re-simulate
   commands.py     Orchestrator command plan + design-intent JSON (SicaMcpHost bridge)
+  sysml.py        SysML v2 textual emitter (parts, requirements, satisfy)
+  modelica.py     runnable Modelica .mo emitter (one-day energy model)
   diagram.py      SysML-style Mermaid block diagram
-  pipeline.py     end-to-end orchestrator
+  pipeline.py     end-to-end orchestrator (+ write_outputs)
 cli.py            terminal runner
 app.py            Streamlit UI
-data/             tables.json (from CAD tool) + sample spec
+data/             tables.json (from CAD tool) + sample specs
+out/              generated .sysml / .mo / .json / .mmd (created on run)
 docs/             pitch + architecture
+DECISIONS.md      design decision log (submission)
+AI-LOG.md         AI usage / fair-play log (submission)
+SLIDES.md         8-slide deck outline (submission)
 ```
+
+## Track outputs (System Modelling with Agentic AI)
+
+Every run also generates, in `out/`:
+- **SysML v2** (`.sysml`) — `part def`s, `requirement def`s with constraints, `satisfy` relationships.
+- **Modelica** (`.mo`) — a runnable one-day energy model (clear-sky irradiance →
+  DC → inverter clipping → integrated AC energy). Run in OpenModelica:
+  `loadFile("out/<name>.mo"); simulate(<Name>, stopTime=86400)`.
+- **Design-intent JSON** + **Mermaid** diagram.
 
 ## Engineering (what the simulation computes)
 

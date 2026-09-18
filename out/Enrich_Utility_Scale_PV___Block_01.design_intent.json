@@ -1,0 +1,89 @@
+{
+  "project": "Enrich Utility-Scale PV \u2014 Block-01",
+  "mounting": "fixed_tilt",
+  "table_name": "MMS Table (32.2920 x 4.5760)",
+  "parameters": {
+    "capacity_mwp": 5.0,
+    "tilt_deg": 24.0,
+    "row_pitch_m": 10.169,
+    "modules_per_string": 28,
+    "target_dc_ac": 1.25
+  },
+  "counts": {
+    "modules": 9100,
+    "strings": 325,
+    "inverters": 1,
+    "tables": 163,
+    "piles": 1956
+  },
+  "command_plan": [
+    {
+      "command": "PlaceTables",
+      "purpose": "Place MMS tables across the site boundary",
+      "depends_on": []
+    },
+    {
+      "command": "SOLARSHADOW",
+      "purpose": "Optimise row pitch for inter-row shading",
+      "depends_on": [
+        "PlaceTables"
+      ]
+    },
+    {
+      "command": "IntExtMarkup",
+      "purpose": "Classify exterior/interior tables",
+      "depends_on": [
+        "PlaceTables"
+      ]
+    },
+    {
+      "command": "PilePlacement",
+      "purpose": "Place piles per table config",
+      "depends_on": [
+        "PlaceTables"
+      ]
+    },
+    {
+      "command": "INV_PILING",
+      "purpose": "Place inverter piles",
+      "depends_on": [
+        "PilePlacement"
+      ]
+    },
+    {
+      "command": "AutoGrouping",
+      "purpose": "Group tables into inverter/SCB sets",
+      "depends_on": [
+        "IntExtMarkup"
+      ]
+    },
+    {
+      "command": "InverterTagging",
+      "purpose": "Tag inverters",
+      "depends_on": [
+        "AutoGrouping"
+      ]
+    },
+    {
+      "command": "LTCable",
+      "purpose": "Route LT cabling",
+      "depends_on": [
+        "AutoGrouping"
+      ]
+    },
+    {
+      "command": "sectionmark",
+      "purpose": "Mark LT cable sections",
+      "depends_on": [
+        "LTCable"
+      ]
+    },
+    {
+      "command": "BOQ_LT_UnderGround",
+      "purpose": "Generate LT BOQ",
+      "depends_on": [
+        "sectionmark"
+      ]
+    }
+  ]
+}

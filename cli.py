@@ -88,6 +88,15 @@ def main():
         dep = f"  (after {', '.join(s.depends_on)})" if s.depends_on else ""
         print(f"  {i:>2}. {B}{s.command}{X}{dep}\n      {s.purpose}")
 
+    _bar("⑨ GENERATED SYSTEM-MODEL ARTIFACTS (SysML v2 + Modelica)")
+    out_dir = os.path.join(os.path.dirname(__file__), "out")
+    written = res.write_outputs(out_dir)
+    for label, path in written.items():
+        print(f"  {G}✓{X} {label:<22} {os.path.relpath(path)}")
+    print(f"\n  Run the Modelica model with OpenModelica:")
+    print(f"    omc  →  loadFile(\"{os.path.relpath(written['Modelica'])}\"); "
+          f"simulate({res.model_final.project and ''.join(c if c.isalnum() else '_' for c in res.model_final.project).strip('_')}, stopTime=86400)")
+
     if "--json" in sys.argv:
         _bar("DESIGN INTENT (JSON)")
         print(json.dumps(res.design_intent, indent=2))
