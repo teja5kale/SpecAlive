@@ -9,14 +9,14 @@
 
   OPENMODELICAHOME                    = "C:/Program Files/OpenModelica1.27.1-64bit"
 
-  guid                                = "{b17d9494-861a-4959-a463-16d1dafc0e9f}"
+  guid                                = "{49cfc85d-243f-4120-8ac8-66ad9796b86d}"
 
   description                         = "L1 Two-Tank sequencing controller (SpecAlive-generated).
    Source-of-truth: cases/tank/ir.json. Behaviour per DR-02 decisions D-01..D-09
    and CR-004 parameters. See cases/tank/ASSUMPTIONS.md for traceability.
    Self-contained, simulatable 0..900 s (StopTime=900)."
   generationTool                      = "OpenModelica Compiler OpenModelica v1.27.1 (64-bit)"
-  generationDateAndTime               = "2026-09-21T13:20:55Z"
+  generationDateAndTime               = "2026-09-24T16:25:02Z"
 
   variableNamingConvention            = "structured"
 

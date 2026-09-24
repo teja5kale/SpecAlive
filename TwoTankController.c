@@ -706,7 +706,7 @@ void TwoTankController_setupDataStruc(DATA *data, threadData_t *threadData)
   data->modelData->modelFileName = "TwoTankController.mo";
   data->modelData->resultFileName = NULL;
   data->modelData->modelDir = "D:/SpecAlive/cases/tank";
-  data->modelData->modelGUID = "{b17d9494-861a-4959-a463-16d1dafc0e9f}";
+  data->modelData->modelGUID = "{49cfc85d-243f-4120-8ac8-66ad9796b86d}";
   #if defined(OPENMODELICA_XML_FROM_FILE_AT_RUNTIME)
   data->modelData->initXMLData = NULL;
   data->modelData->modelDataXml.infoXMLData = NULL;

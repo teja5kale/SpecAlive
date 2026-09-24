@@ -1,5 +1,5 @@
 {"format":"Transformational debugger info","version":1,
-"info":{"name":"TwoTankController","description":"L1 Two-Tank sequencing controller (SpecAlive-generated).\n   Source-of-truth: cases/tank/ir.json. Behaviour per DR-02 decisions D-01..D-09\n   and CR-004 parameters. See cases/tank/ASSUMPTIONS.md for traceability.\n   Self-contained, simulatable 0..900 s (StopTime=900)."},
+"info":{"name":"TwoTankController","description":"L1 Two-Tank sequencing controller (SpecAlive-generated).\r\n   Source-of-truth: cases/tank/ir.json. Behaviour per DR-02 decisions D-01..D-09\r\n   and CR-004 parameters. See cases/tank/ASSUMPTIONS.md for traceability.\r\n   Self-contained, simulatable 0..900 s (StopTime=900)."},
 "variables":{
 "h1":{"comment":"Tank 1 level (LT-101)","kind":"state","type":"Real","unit":"m","displayUnit":"","source":{"info":{"file":"D:/SpecAlive/cases/tank/TwoTankController.mo","lineStart":29,"lineEnd":29,"colStart":3,"colEnd":72}},"index":0},
 "h2":{"comment":"Tank 2 level (LT-102)","kind":"state","type":"Real","unit":"m","displayUnit":"","source":{"info":{"file":"D:/SpecAlive/cases/tank/TwoTankController.mo","lineStart":30,"lineEnd":30,"colStart":3,"colEnd":72}},"index":1},
