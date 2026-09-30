@@ -1,4 +1,4 @@
-"""Core data model for SpecAlive.
+"""Core data model for SICA.
 
 Three layers:
   * RequirementSet  — what the spec *asks for* (verifiable "shall" statements)

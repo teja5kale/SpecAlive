@@ -1,7 +1,7 @@
 # Installing OpenModelica (the hard-gate compiler)
 
 The hackathon's hard gate is: **the generated Modelica must compile in
-OpenModelica.** This sets up `omc` so SpecAlive's `compile_check.py` can verify it.
+OpenModelica.** This sets up `omc` so SICA's `compile_check.py` can verify it.
 
 ## Windows (your machine)
 

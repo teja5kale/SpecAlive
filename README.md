@@ -1,8 +1,8 @@
-# 🔆 SpecAlive — Specs to a Live Solar Plant Model
+# 🔆 SICA — Specs to a Live Solar Plant Model
 
 **SpecAlive Hackathon 2026 · AI in Engineering / System Modelling · CCTech**
 
-SpecAlive reads a solar plant's requirements in plain English, builds a validated
+SICA reads a solar plant's requirements in plain English, builds a validated
 engineering **system model**, proves it meets every requirement by **simulation**,
 and emits the exact **command plan** that drives the existing
 *Solar-Design-Configurator* CAD tool — closing the loop from **spec → live model**.

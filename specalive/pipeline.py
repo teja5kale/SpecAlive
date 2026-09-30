@@ -1,4 +1,4 @@
-"""End-to-end SpecAlive loop: text -> model -> sim -> validate -> refine -> plan."""
+"""End-to-end SICA loop: text -> model -> sim -> validate -> refine -> plan."""
 from __future__ import annotations
 
 from dataclasses import dataclass

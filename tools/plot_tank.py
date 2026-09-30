@@ -45,7 +45,7 @@ def main():
         ax1.axvline(x, ls=":", c="#cbd5e1", lw=1)
         ax1.text(x + 3, 0.02, lab, rotation=90, fontsize=7, color="#64748b", va="bottom")
     ax1.set_ylabel("Level (m)")
-    ax1.set_title("L1 Two-Tank Controller — SpecAlive-generated Modelica (OpenModelica)")
+    ax1.set_title("L1 Two-Tank Controller — SICA-generated Modelica (OpenModelica)")
     ax1.legend(loc="upper right", fontsize=9)
     ax1.grid(alpha=0.25)
 

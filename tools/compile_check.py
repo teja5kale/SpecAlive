@@ -2,7 +2,7 @@
 
 This is the hard-gate check: it drives `omc` to load the .mo, check it, and
 (optionally) simulate it, then prints a clean PASS/FAIL with the exact error
-text. Designed to feed SpecAlive's model-repair loop: on FAIL, the error text
+text. Designed to feed SICA's model-repair loop: on FAIL, the error text
 is what the LLM gets to propose a fix.
 
 Usage:

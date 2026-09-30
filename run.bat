@@ -1,6 +1,6 @@
 @echo off
 REM ============================================================
-REM  SpecAlive - one-click launcher for the Streamlit UI
+REM  SICA - one-click launcher for the Streamlit UI
 REM  Double-click this file to start the app.
 REM ============================================================
 setlocal
@@ -30,7 +30,7 @@ if errorlevel 1 (
 
 echo.
 echo ============================================================
-echo   Launching SpecAlive UI...
+echo   Launching SICA UI...
 echo   A browser tab opens automatically.
 echo   The exact address (http://localhost:PORT) is printed below.
 echo   Press Ctrl+C in this window to stop the app.
@@ -42,5 +42,5 @@ REM and opens the browser to the correct address.
 python -m streamlit run app.py
 
 echo.
-echo SpecAlive stopped.
+echo SICA stopped.
 pause

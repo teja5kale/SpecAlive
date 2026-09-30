@@ -45,7 +45,7 @@ def to_sysml_v2(m: PlantModel, reqs: RequirementSet, sim: SimResult) -> str:
 
     return f"""package {pkg} {{
     // ============================================================
-    // SpecAlive-generated SysML v2 system model
+    // SICA-generated SysML v2 system model
     // Source: validated PlantModel for "{m.project}"
     // ============================================================
 
@@ -91,7 +91,7 @@ def to_sysml_v2(m: PlantModel, reqs: RequirementSet, sim: SimResult) -> str:
 
     part plant : PVPlant;
 
-    // ---------- analysis: simulated KPIs (from SpecAlive engine) ----------
+    // ---------- analysis: simulated KPIs (from SICA engine) ----------
     part def PlantKPI {{
 {kpi_lines}
         attribute pr : Real = {e['pr']};

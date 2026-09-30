@@ -1,4 +1,4 @@
-# DECISIONS.md — SpecAlive
+# DECISIONS.md — SICA
 
 Design decisions, most-recent last. Format: **what** · **why** · **date**.
 Track: *System Modelling with Agentic AI* — SpecAlive Hackathon 2026.
@@ -6,7 +6,7 @@ Track: *System Modelling with Agentic AI* — SpecAlive Hackathon 2026.
 | # | Decision | Rationale | Date |
 |---|----------|-----------|------|
 | 1 | Build **on top of** the real *Solar-Design-Configurator* CAD product rather than a toy domain | The theme is "Specs to live Models"; anchoring to a production tool (75 features, `Orchestrator.Main`, scaffolded `SicaMcpHost`) makes the "live model" real and the integration story concrete. | 2026-09-17 |
-| 2 | **Standalone repo**, zero changes to the CAD codebase | The CAD product is production code we were asked not to modify; SpecAlive only *reads* its command/BOQ vocabulary and *emits* inputs for it. | 2026-09-17 |
+| 2 | **Standalone repo**, zero changes to the CAD codebase | The CAD product is production code we were asked not to modify; SICA only *reads* its command/BOQ vocabulary and *emits* inputs for it. | 2026-09-17 |
 | 3 | Intermediate **structured model (Pydantic)** as the single source of truth | Makes this MBSE, not "LLM writes code": every downstream artifact (SysML, Modelica, sim, command plan) derives from one validated model. | 2026-09-17 |
 | 4 | **Offline regex extractor + optional Claude** for requirement parsing | Demo must never break on a missing API key or network; Claude is used when `ANTHROPIC_API_KEY` is set, else a deterministic fallback. | 2026-09-17 |
 | 5 | **Python/SciPy** simulation engine for KPIs | Runs everywhere, instantly, in the demo — no external solver needed for the always-on validation loop. | 2026-09-17 |

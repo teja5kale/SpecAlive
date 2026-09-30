@@ -1,4 +1,4 @@
-"""SpecAlive — Streamlit UI.
+"""SICA — Streamlit UI.
 
 Run:  streamlit run app.py
 
@@ -15,7 +15,7 @@ import streamlit.components.v1 as components
 
 from specalive.pipeline import run
 
-st.set_page_config(page_title="SpecAlive", page_icon="🔆", layout="wide")
+st.set_page_config(page_title="SICA", page_icon="🔆", layout="wide")
 
 DEFAULT_SPEC = os.path.join(os.path.dirname(__file__), "data", "sample_spec_enrich.txt")
 
@@ -31,7 +31,7 @@ def mermaid(code: str, height: int = 300):
     )
 
 
-st.title("🔆 SpecAlive — Specs to a Live Solar Plant Model")
+st.title("🔆 SICA — Specs to a Live Solar Plant Model")
 st.caption("Requirements text → validated system model → simulation → command plan "
            "for Solar-Design-Configurator (SicaMcpHost). No changes to the CAD repo.")
 
@@ -50,10 +50,10 @@ with st.sidebar:
              "cold-temperature Voc from the start (no refine needed).",
     )
     naive = mode.startswith("Naive")
-    go = st.button("▶ Run SpecAlive loop", type="primary", width='stretch')
+    go = st.button("▶ Run SICA loop", type="primary", width='stretch')
 
 if not go:
-    st.info("Edit the spec on the left and hit **Run SpecAlive loop**. "
+    st.info("Edit the spec on the left and hit **Run SICA loop**. "
             "Try changing a threshold (e.g. Voc limit, DC/AC window) and re-run.")
     st.stop()
 

@@ -1,6 +1,6 @@
 package TwoTankController {
     // ============================================================
-    // SpecAlive-generated SysML v2 model  (L1 Two-Tank Controller)
+    // SICA-generated SysML v2 model  (L1 Two-Tank Controller)
     // Single source of truth: cases/tank/ir.json
     // Behaviour per DR-02 (D-01..D-09) + CR-004 parameters.
     // ============================================================

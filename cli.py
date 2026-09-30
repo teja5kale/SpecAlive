@@ -1,4 +1,4 @@
-"""SpecAlive CLI — run the full loop on a spec file and print the report.
+"""SICA CLI — run the full loop on a spec file and print the report.
 
 Usage:
     python cli.py [path/to/spec.txt]      (defaults to data/sample_spec_fixedtilt.txt)

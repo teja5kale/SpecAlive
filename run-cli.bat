@@ -1,6 +1,6 @@
 @echo off
 REM ============================================================
-REM  SpecAlive - one-click CLI run
+REM  SICA - one-click CLI run
 REM  Double-click to run the full spec->model->sim->validate->refine
 REM  loop and write SysML v2 / Modelica / JSON / diagram to .\out\
 REM ============================================================
@@ -33,7 +33,7 @@ REM --- run the loop (default Enrich spec). Pass a spec path as an argument
 REM     by dragging a .txt onto this .bat, or edit the line below. ---
 echo.
 echo ============================================================
-echo   Running SpecAlive loop...  (artifacts will land in .\out\)
+echo   Running SICA loop...  (artifacts will land in .\out\)
 echo ============================================================
 echo.
 

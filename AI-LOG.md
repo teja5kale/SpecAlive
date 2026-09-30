@@ -1,6 +1,6 @@
-# AI-LOG.md — SpecAlive
+# AI-LOG.md — SICA
 
-Honest record of how AI was used to build SpecAlive, for the hackathon's
+Honest record of how AI was used to build SICA, for the hackathon's
 fair-play requirement. Tool: **Claude Code (Claude Opus 4.8)**.
 
 ## Summary
@@ -30,7 +30,7 @@ source before use.
 
 ## Prompts / workflow (representative)
 1. "Read the Solar-Design-Configurator project, no code changes" → codebase map.
-2. "Brainstorm/scope a spec→model→simulation project around it" → the SpecAlive loop.
+2. "Brainstorm/scope a spec→model→simulation project around it" → the SICA loop.
 3. "Build the project at D:\SpecAlive" → the Python package + CLI + Streamlit app.
 4. "Wire in a real Enrich spec so the numbers are authentic" → repo-grounded sample + provenance.
 5. "Add SysML v2 + Modelica emitters (track toolchain)" → `sysml.py`, `modelica.py`.

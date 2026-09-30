@@ -1,4 +1,4 @@
-"""SpecAlive — Specs to a live solar plant model.
+"""SICA — Specs to a live solar plant model.
 
 A standalone requirements-to-model pipeline that sits on top of the
 Solar-Design-Configurator CAD tool (it reads that tool's command/BOQ

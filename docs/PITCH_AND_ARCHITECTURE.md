@@ -1,4 +1,4 @@
-# SpecAlive — Specs to a Live Solar Plant Model
+# SICA — Specs to a Live Solar Plant Model
 
 **SpecAlive Hackathon 2026 · AI in Engineering / System Modelling · CCTech**
 *Turning natural-language solar-plant requirements into a validated, executable system model that drives real CAD automation.*
@@ -7,7 +7,7 @@
 
 ## 1. The one-line pitch
 
-> **SpecAlive reads a solar plant's requirements in plain English, builds a validated engineering model of the plant, proves it meets every requirement by simulation, and emits the exact command plan that drives the existing Solar-Design-Configurator CAD tool to produce the drawing — closing the loop from *spec* to *live model*.**
+> **SICA reads a solar plant's requirements in plain English, builds a validated engineering model of the plant, proves it meets every requirement by simulation, and emits the exact command plan that drives the existing Solar-Design-Configurator CAD tool to produce the drawing — closing the loop from *spec* to *live model*.**
 
 ---
 
@@ -31,9 +31,9 @@ Requirements → System Model → Simulation → Validation → Refine → Desig
 
 ---
 
-## 3. The solution — the SpecAlive loop
+## 3. The solution — the SICA loop
 
-SpecAlive is a **standalone layer that sits on top of** Solar-Design-Configurator. It **does not modify** the CAD codebase; it consumes its vocabulary (features, commands, BOQ concepts) and produces inputs for it.
+SICA is a **standalone layer that sits on top of** Solar-Design-Configurator. It **does not modify** the CAD codebase; it consumes its vocabulary (features, commands, BOQ concepts) and produces inputs for it.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -95,7 +95,7 @@ SpecAlive is a **standalone layer that sits on top of** Solar-Design-Configurato
 - **On-theme, literally.** "Specs to live Models" — and the *live model* here is a real production CAD tool, not a toy.
 - **Grounded in a real product.** It leverages Solar-Design-Configurator's 75 features, its `Orchestrator.Main(cmd)` dispatcher, and its already-scaffolded **`SicaMcpHost`** — a credible, concrete integration story judges can see.
 - **The hard part is real and demo-safe.** String sizing, DC/AC, yield, shading, and voltage-drop are genuine PV engineering, computed in pure Python. **Zero AutoCAD dependency** → the demo never breaks on a flaky plugin load.
-- **Closes the loop the tool is missing.** Today the tool draws; it doesn't *verify against intent*. SpecAlive adds requirements traceability and validation — the MBSE piece.
+- **Closes the loop the tool is missing.** Today the tool draws; it doesn't *verify against intent*. SICA adds requirements traceability and validation — the MBSE piece.
 - **Extensible.** The same structured model can later drive the live plugin through `SicaMcpHost` for a true "spec → drawing" round trip.
 
 ---
@@ -171,7 +171,7 @@ public static void Main(string cmd) {
 Every feature is a command string (from `CLAUDE.md`'s command map), e.g.
 `PlaceTables`, `PilePlacement`, `INV_PILING`, `AutoGrouping`, `LTCable`, `sectionmark`, `BOQ_LT_UnderGround`, `CalculateHTSections`.
 
-SpecAlive's **Command-Plan Emitter** produces an ordered, dependency-correct list of these commands plus the parameter payload — the machine-readable "design intent." Because the repo already contains a **`SicaMcpHost`** project, this plan is the natural payload for an MCP tool call that the host relays into `Orchestrator.Main(...)`. **For the hackathon we demo the generated plan + simulation/validation; wiring it into the live plugin is the documented next step** (and requires no change we make to their code — it's an adapter on the host side).
+SICA's **Command-Plan Emitter** produces an ordered, dependency-correct list of these commands plus the parameter payload — the machine-readable "design intent." Because the repo already contains a **`SicaMcpHost`** project, this plan is the natural payload for an MCP tool call that the host relays into `Orchestrator.Main(...)`. **For the hackathon we demo the generated plan + simulation/validation; wiring it into the live plugin is the documented next step** (and requires no change we make to their code — it's an adapter on the host side).
 
 ---
 
@@ -193,11 +193,11 @@ All standard PV design math — this is the substance that makes it MBSE, not "L
 ## 7. Demo script (3–4 minutes)
 
 1. **Paste a tender spec** (plain English) into the left pane.
-2. SpecAlive extracts **8–10 structured requirements** (show the table).
+2. SICA extracts **8–10 structured requirements** (show the table).
 3. It synthesizes the **plant model** → SysML block diagram appears on the right.
 4. **Simulate** → KPI cards + yield curve + shading plot.
 5. **Validation matrix**: one requirement is **RED** (e.g. Voc@Tmin = 1512 V > 1500 V).
-6. Click **Refine** → SpecAlive drops modules/string 22→21, re-simulates → all **GREEN**.
+6. Click **Refine** → SICA drops modules/string 22→21, re-simulates → all **GREEN**.
 7. Show the **generated Orchestrator command plan** + JSON design intent, and point to `SicaMcpHost` as the live hook.
 8. **Finale:** edit one spec line, watch the whole loop re-run live.
 
@@ -231,7 +231,7 @@ All standard PV design math — this is the substance that makes it MBSE, not "L
 
 ## 10. Boundaries & non-goals
 
-- **No changes to the Solar-Design-Configurator codebase.** SpecAlive is a separate project; it references the tool's public command/feature vocabulary only.
+- **No changes to the Solar-Design-Configurator codebase.** SICA is a separate project; it references the tool's public command/feature vocabulary only.
 - Not a replacement for detailed electrical design software; it's a **requirements-driven front-end and validator**.
 - Live AutoCAD execution is a documented integration path (via `SicaMcpHost`), not a hackathon-day dependency.
 

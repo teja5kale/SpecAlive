@@ -1,4 +1,4 @@
-# SpecAlive — 8-Slide Deck
+# SICA — 8-Slide Deck
 
 *SpecAlive Hackathon 2026 · Track: System Modelling with Agentic AI.*
 One slide per section; speaker notes under each. Target: the 45-minute evaluation.
@@ -6,7 +6,7 @@ One slide per section; speaker notes under each. Target: the 45-minute evaluatio
 ---
 
 ## Slide 1 — Title & Problem
-**SpecAlive: Specs to a Live Solar Plant Model**
+**SICA: Specs to a Live Solar Plant Model**
 
 - A solar plant spec arrives as prose ("5 MWp fixed-tilt, DC/AC 1.2–1.3, Voc ≤ 1500 V…").
 - Today: an engineer reads it, holds the design in their head, drives **75 CAD ribbon buttons** by hand, and **nothing verifies the drawing against the spec**.
@@ -25,7 +25,7 @@ One slide per section; speaker notes under each. Target: the 45-minute evaluatio
 
 ---
 
-## Slide 3 — Architecture (the SpecAlive loop)
+## Slide 3 — Architecture (the SICA loop)
 ```
 Requirements text
   → [Claude/offline] RequirementSet
@@ -36,7 +36,7 @@ Requirements text
   → Orchestrator command plan → SicaMcpHost → live CAD
 ```
 - One validated model → four coordinated outputs.
-- **No changes** to the production CAD repo — SpecAlive reads its vocabulary, emits its inputs.
+- **No changes** to the production CAD repo — SICA reads its vocabulary, emits its inputs.
 
 ---
 
@@ -78,4 +78,4 @@ Requirements text
 - **Roadmap:** live `SicaMcpHost` round-trip; optimizer (max yield s.t. all requirements); tracker + multi-block; PDF spec ingestion.
 - **Team & effort:** 4 members, ~12–15 focused hours, part-time. Roles: SysML, Modelica, Python/LLM, domain.
 
-> Speaker note: Close on the one-liner — "SpecAlive turns a paragraph of requirements into a validated, simulatable, buildable solar plant."
+> Speaker note: Close on the one-liner — "SICA turns a paragraph of requirements into a validated, simulatable, buildable solar plant."
